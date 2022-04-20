@@ -7,17 +7,21 @@ class Play extends Phaser.Scene {
         //load images/title sprites
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png');
-        this.load.image('starfield', './assets/starfield.png');
+        this.load.image('sunset', './assets/sunset.png');
+        this.load.image('rocks', './assets/rocks.png');
+        this.load.image('road', './assets/Road.png');
         // load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
 
     }
     
     create() {
-        // place tile sprite
-        this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
+        // place parallax tile sprite
+        this.sunset = this.add.tileSprite(0, 0, 640, 480, 'sunset').setOrigin(0, 0);
+        this.rocks = this.add.tileSprite(0, 0, 640, 480, 'rocks').setOrigin(0, 0);
+        this.road = this.add.tileSprite(0, 0, 640, 480, 'road').setOrigin(0, 0);
         // green UI Background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
+        //this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 1, 0x00FF00).setOrigin(0, 0);
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
@@ -77,7 +81,9 @@ class Play extends Phaser.Scene {
             this.scene.start("menuScene");
         }
         if (!this.gameOver) {
-            this.starfield.tilePositionX -= 4;
+            this.sunset.tilePositionX -= .5;  //scroll parrallax
+            this.rocks.tilePositionX -= 1;
+            this.road.tilePositionX -= 3;
             this.p1Rocket.update();
             this.ship01.update();               // update spaceships (x3)
             this.ship02.update();
