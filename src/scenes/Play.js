@@ -10,7 +10,7 @@ class Play extends Phaser.Scene {
         this.load.image('sunset', './assets/sunset.png');
         this.load.image('rocks', './assets/rocks.png');
         this.load.image('road', './assets/Road.png');
-        // load spritesheet
+        // load spritesheets
         this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
         this.load.spritesheet('dragon', './assets/dragon.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 3});
 
@@ -131,6 +131,6 @@ class Play extends Phaser.Scene {
         // score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score
-        this.sound.play('sfx_explosion');
+        //this.sound.play('sfx_explosion');
     }
 }

@@ -12,8 +12,9 @@ class Spaceship extends Phaser.GameObjects.Sprite {
             first: 0}),
             frameRate: 3,
             repeat: -1
-         });    
-
+         });
+         this.anims.play('dragon');
+    }
     update() {
         //move spaceship left
         this.x -= this.moveSpeed;
