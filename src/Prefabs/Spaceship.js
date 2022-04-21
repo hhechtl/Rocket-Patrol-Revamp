@@ -1,10 +1,16 @@
 // Spaceship prefab
 class Spaceship extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, frame, pointValue) {
+    constructor(scene, x, y, texture, frame, pointValue, type) {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);               //add to existing scene
         this.points = pointValue;               // store pointValue
         this.moveSpeed = game.settings.spaceshipSpeed;                     // pixels per frame
+        //adding different sprite type
+        this.type = type
+        if (this.type == 2) {
+            this.moveSpeed = game.settings.spaceshipSpeed + 1;
+        };
+
         //add sprite animation
         this.anims.create({
             key: 'dragon',
@@ -14,6 +20,16 @@ class Spaceship extends Phaser.GameObjects.Sprite {
             repeat: -1
          });
          this.anims.play('dragon');
+
+         if (this.type == 2) {
+             this.anims.create({
+                 key: 'goldDragon',
+                 frames: this.anims.generateFrameNumbers('goldDragon', {start: 0, end: 3, first: 0}),
+                 frameRate: 5,
+                 repeat: -1
+             })
+            this.anims.play('goldDragon')
+         }
     }
     update() {
         //move spaceship left
