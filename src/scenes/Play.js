@@ -15,9 +15,15 @@ class Play extends Phaser.Scene {
         this.load.spritesheet('explosionGold', './assets/explosionGold.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
         this.load.spritesheet('dragon', './assets/dragon.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 3});
         this.load.spritesheet('goldDragon', './assets/goldDragon.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame:3});
+        // load background music
+        this.load.audio('bg_music', './assets/BackgroundMusic.mp3');            //Royalty free music from https://www.FesliyanStudios.com non-commercial liscence
     }
     
     create() {
+        //play audio
+        var cowboyMusic = this.sound.add('bg_music');
+        cowboyMusic.setLoop(true);
+        cowboyMusic.play();
         // place parallax tile sprite
         this.sunset = this.add.tileSprite(0, 0, 640, 480, 'sunset').setOrigin(0, 0);
         this.rocks = this.add.tileSprite(0, 0, 640, 480, 'rocks').setOrigin(0, 0);
@@ -160,6 +166,6 @@ class Play extends Phaser.Scene {
         // score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score
-        //this.sound.play('sfx_explosion');
+        this.sound.play('sfx_explosion');
     }
 }
