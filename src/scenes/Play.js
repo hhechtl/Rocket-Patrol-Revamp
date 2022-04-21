@@ -20,8 +20,8 @@ class Play extends Phaser.Scene {
     }
     
     create() {
-        //play audio
-        var cowboyMusic = this.sound.add('bg_music');
+        //play audio                                            method for background audio found on https://stackoverflow.com/questions/34210393/looping-audio-in-phaser 
+        var cowboyMusic = this.sound.add('bg_music'); 
         cowboyMusic.setLoop(true);
         cowboyMusic.play();
         // place parallax tile sprite

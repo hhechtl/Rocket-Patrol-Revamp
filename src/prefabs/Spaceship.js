@@ -11,7 +11,7 @@ class Spaceship extends Phaser.GameObjects.Sprite {
             this.moveSpeed = game.settings.spaceshipSpeed + 1;
         };
 
-        //add sprite animation
+        //add sprite animation    minor guidence provided by Annika Kennedy(classmate)
         this.anims.create({
             key: 'dragon',
             frames: this.anims.generateFrameNumbers('dragon', {start: 0, end: 3, 
